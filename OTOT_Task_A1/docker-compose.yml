@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    build: ./reverse-proxy/
+    container_name: taska1_reverse-proxy
+    ports: 
+      - 80:80
+    restart: always
+  nginx-1:
+    build: ./nginx-1/
+    depends_on:
+      - reverse-proxy
+    container_name: taska1_nginx-1
+    restart: always
+  nginx-2:
+    build: ./nginx-2/
+    depends_on:
+      - reverse-proxy
+    container_name: taska1_nginx-2
+    restart: always
