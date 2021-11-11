@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mariadb:
+    build: 
+      context: ./mariadb
+      dockerfile: Dockerfile
+    image: taska2/mariadb:1.0.0
+    ports:
+      - 3036:3036
+  catalog-service:
+    build:
+      context: ./catalog-service
+      dockerfile: Dockerfile
+    image: taska2/catalog-service:1.0.0
+    ports:
+      - 8080:8080
