@@ -28,7 +28,6 @@ app.post('/admin', verifyToken, (req, res) => {
 });
 
 function verifyToken(req, res, next) {
-    console.log("Here");
     const accessPath = req.route.path;
     try {
         const header = req.headers['authorization'];
